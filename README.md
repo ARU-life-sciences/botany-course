@@ -32,8 +32,8 @@ Slides are written in [Typst](https://typst.app/) using the [Touying](https://gi
 ### Building
 
 ```
-typst compile main_leaves.typ
-typst compile main_flowers.typ
+typst compile main_flowers.typ ./lectures/flowers.pdf
+typst compile main_leaves.typ ./lectures/leaves.pdf
 ```
 
 Requires Typst ≥ 0.13 with packages `@preview/touying:0.7.1` and `@preview/cetz:0.3.4`.
