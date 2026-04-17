@@ -28,7 +28,11 @@ A 6-week introductory botany course combining classroom sessions, fieldwork, and
 | `main_flowers.typ` | Week 1 — flower morphology and symmetry |
 | `main_inflorescences.typ` | Week 1 — inflorescence types |
 
+The PDF's are also in this same directory.
+
 ### Library (`lib/`)
+
+A small typst library which creates various diagrams of leaves, flowers, and infloresences.
 
 | File | Description |
 |------|-------------|

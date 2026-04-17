@@ -5,7 +5,8 @@
 
 set -euo pipefail
 
-LECTURES_DIR="$(cd "$(dirname "$0")/lectures" && pwd)"
+COURSE_ROOT="$(cd "$(dirname "$0")" && pwd)"
+LECTURES_DIR="$COURSE_ROOT/lectures"
 WATCH=${1:-}
 
 ok=0; fail=0
@@ -17,7 +18,7 @@ compile_one() {
   local out="$LECTURES_DIR/${name}.pdf"
 
   printf "  %-30s → %s ... " "$name.typ" "${name}.pdf"
-  if typst compile "$src" "$out" 2>&1; then
+  if typst compile --root "$COURSE_ROOT" "$src" "$out" 2>&1; then
     echo "OK"
     ((ok++)) || true
   else
