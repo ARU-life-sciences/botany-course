@@ -20,20 +20,29 @@ A 6-week introductory botany course combining classroom sessions, fieldwork, and
 
 ## Repository contents
 
+### Slide decks (`./lectures/main_*.typ`)
+
 | File | Description |
 |------|-------------|
-| `main_leaves.typ` | Week 1 slide deck — leaf morphology |
-| `main_flowers.typ` | Week 1 slide deck — flower morphology |
-| `leafs.typ` | Typst/CeTZ library: leaf diagrams, hair types, axil illustration, Oxalis |
-| `flowers.typ` | Typst/CeTZ library: flower diagrams (dicot, monocot, bilabiate top views; longitudinal sections) |
+| `main_leaves.typ` | Week 1 — leaf morphology |
+| `main_flowers.typ` | Week 1 — flower morphology and symmetry |
+| `main_inflorescences.typ` | Week 1 — inflorescence types |
+
+### Library (`lib/`)
+
+| File | Description |
+|------|-------------|
+| `lib/leafs.typ` | Leaf diagrams, hair types, axil illustration, Oxalis compound leaf |
+| `lib/flowers.typ` | Flower diagrams: dicot, monocot, bilabiate top views; longitudinal sections |
+| `lib/inflorescences.typ` | Schematic inflorescence diagrams: solitary, raceme, spike, umbel, compound umbel, capitulum, axillary, cyme |
 
 Slides are written in [Typst](https://typst.app/) using the [Touying](https://github.com/touying-typ/touying) presentation framework and [CeTZ](https://github.com/cetz-package/cetz) for vector diagrams.
 
 ### Building
 
-```
-typst compile main_flowers.typ ./lectures/flowers.pdf
-typst compile main_leaves.typ ./lectures/leaves.pdf
+```bash
+./build.sh          # compile all lectures to lectures/*.pdf
+./build.sh --watch  # recompile on save (one watcher per file)
 ```
 
 Requires Typst ≥ 0.13 with packages `@preview/touying:0.7.1` and `@preview/cetz:0.3.4`.

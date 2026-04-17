@@ -1,5 +1,5 @@
 #import "@preview/touying:0.7.1": *
-#import "flowers.typ": *
+#import "../lib/flowers.typ": *
 
 #import themes.simple: *
 #show: simple-theme.with(aspect-ratio: "16-9")

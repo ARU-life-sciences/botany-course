@@ -1,5 +1,5 @@
 #import "@preview/touying:0.7.1": *
-#import "leafs.typ": *
+#import "../lib/leafs.typ": *
 
 #import themes.simple: *
 #show: simple-theme.with(aspect-ratio: "16-9")
