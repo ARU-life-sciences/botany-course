@@ -16,7 +16,7 @@
 == What is a leaf?
 - Variable in size and shape, form and function
 #pause
-- Photosynthetic, protective (spines/sheaths), architectural (climbing), carnivorous (pitchers)
+- Photosynthetic, protective (spines/sheaths), architectural (climbing), carnivorous (pitchers), storage (e.g. garlic)
 #pause
 - *A leaf always subtends a bud*
 

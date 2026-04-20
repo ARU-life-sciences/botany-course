@@ -24,6 +24,7 @@ A 6-week introductory botany course combining classroom sessions, fieldwork, and
 
 | File | Description |
 |------|-------------|
+| `main_british_botany.typ` | Week 1 — introduction to British botany (species numbers, aliens, families, resources) |
 | `main_leaves.typ` | Week 1 — leaf morphology |
 | `main_flowers.typ` | Week 1 — flower morphology and symmetry |
 | `main_inflorescences.typ` | Week 1 — inflorescence types |
