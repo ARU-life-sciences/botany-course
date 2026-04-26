@@ -277,6 +277,69 @@
   trio(b2r, 0.9, 0.19,  45deg)
 })
 
+// --- Catkin --- pendulous axis with overlapping bract scales
+#let inf_catkin(size: 5cm) = canvas(length: size / 8, {
+  import draw: *
+  _stem((0, 4.8), (0, 7.6))   // peduncle
+  _stem((0, 0.5), (0, 4.8))   // axis drawn first; bracts overlay it
+
+  // (y, side, scale) — scale tapers toward tip
+  let nodes = (
+    (4.40,  1.0, 1.00),
+    (3.88, -1.0, 1.00),
+    (3.36,  1.0, 1.00),
+    (2.84, -1.0, 1.00),
+    (2.32,  1.0, 0.88),
+    (1.80, -1.0, 0.88),
+    (1.28,  1.0, 0.75),
+    (0.78, -1.0, 0.68),
+  )
+
+  for nd in nodes {
+    let y  = nd.at(0)
+    let s  = nd.at(1)
+    let sc = nd.at(2)
+
+    // stamens: 3 per bract, drawn before bract so bases are hidden
+    for j in range(3) {
+      let ox = s * (0.24 + j * 0.17) * sc
+      draw.line(
+        (ox, y + 0.03),
+        (ox + s * 0.06, y - 0.26 * sc),
+        stroke: (paint: _sc, thickness: 0.28pt)
+      )
+      // anther (golden dot)
+      draw.circle(
+        (ox + s * 0.08, y - 0.31 * sc),
+        radius: 0.068 * sc,
+        fill: _fcs,
+        stroke: none
+      )
+    }
+
+    // bract scale — wider, flatter, tongue-shaped
+    draw.catmull(
+      (0.0,            y + 0.28 * sc),
+      (s * 0.45 * sc,  y + 0.52 * sc),
+      (s * 1.12 * sc,  y + 0.26 * sc),
+      (s * 1.08 * sc,  y + 0.00),
+      (s * 0.82 * sc,  y - 0.18 * sc),
+      (s * 0.22 * sc,  y - 0.10 * sc),
+      (0.0,            y + 0.08 * sc),
+      close: true,
+      fill: _lc,
+      stroke: (paint: _lcs, thickness: 0.44pt),
+    )
+  }
+
+  // tapered terminal bud
+  draw.catmull(
+    (0, 0.62), (-0.20, 0.46), (0, 0.26), (0.20, 0.46),
+    close: true,
+    fill: _bc, stroke: (paint: _bcs, thickness: 0.42pt)
+  )
+})
+
 // ======================================================
 // Tight head variants
 // ======================================================

@@ -166,9 +166,11 @@
 //   body:   content — label text; wrap in Touying uncover() for sequential reveal
 //   anchor: string  — CeTZ anchor, default "center"
 // Coordinates are in canvas units (same as the drawing).
-#let flower_top(kind: "dicot", size: 5.2cm, labels: (), symmetry-lines: 0) = {
+#let flower_top(kind: "dicot", size: 5.2cm, labels: (), symmetry-lines: 0, petal-clr: auto) = {
   canvas(length: size / 10, {
     import draw: *
+    let pf = if petal-clr == auto { petal-fill } else { petal-clr }
+    let ps = if petal-clr == auto { petal-stroke } else { petal-clr.darken(40%) }
 
     // background disk (behind everything)
     draw.circle(
@@ -178,7 +180,77 @@
       stroke: none,
     )
 
-    if kind == "monocot" {
+    if kind == "3-petal" {
+      // 3 sepals
+      for a in (30deg, 150deg, 270deg) {
+        _draw_radial_organ(_sepal_outline(), radius: 1.05, angle: a,
+          fill: sepal-fill, stroke: (paint: sepal-stroke, thickness: 0.8pt), scale: 0.9)
+      }
+      // 3 petals
+      for a in (90deg, 210deg, 330deg) {
+        _draw_radial_organ(_petal_outline(), radius: 1.45, angle: a,
+          fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 1.0)
+      }
+      // 6 stamens
+      for a in (0deg, 60deg, 120deg, 180deg, 240deg, 300deg) {
+        _draw_radial_stamen(radius: 0.9, angle: a, len: 0.82, anther-scale: 0.85)
+      }
+      _draw_gynoecium_top(carpels: 3, radius: 0.7)
+
+    } else if kind == "4-petal" {
+      // 4 sepals
+      for a in (45deg, 135deg, 225deg, 315deg) {
+        _draw_radial_organ(_sepal_outline(), radius: 1.05, angle: a,
+          fill: sepal-fill, stroke: (paint: sepal-stroke, thickness: 0.8pt), scale: 0.88)
+      }
+      // 4 petals at cardinal positions
+      for a in (90deg, 180deg, 270deg, 0deg) {
+        _draw_radial_organ(_petal_outline(), radius: 1.45, angle: a,
+          fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 1.0)
+      }
+      // 6 stamens (tetradynamous, like Brassicaceae)
+      for a in (30deg, 90deg, 150deg, 210deg, 270deg, 330deg) {
+        _draw_radial_stamen(radius: 0.9, angle: a, len: 0.82, anther-scale: 0.82)
+      }
+      _draw_gynoecium_top(carpels: 2, radius: 0.65)
+
+    } else if kind == "joined" {
+      // Sympetalous corolla: single 5-lobed fused disc
+      let o-r = 2.85
+      let i-r = 1.7
+      let pts = ()
+      for i in range(10) {
+        let a = 90deg + i * 36deg
+        let r = if calc.rem(i, 2) == 0 { o-r } else { i-r }
+        pts.push((r * calc.cos(a), r * calc.sin(a)))
+      }
+      draw.catmull(..pts, close: true,
+        fill: pf, stroke: (paint: ps, thickness: 0.9pt))
+      // inner tube shading
+      draw.circle((0, 0), radius: i-r * 0.75,
+        fill: pf.darken(12%), stroke: (paint: ps, thickness: 0.45pt))
+      // 5 stamens adnate to tube
+      for a in (54deg, 126deg, 198deg, 270deg, 342deg) {
+        _draw_radial_stamen(radius: 0.85, angle: a, len: 0.75, anther-scale: 0.82)
+      }
+      _draw_gynoecium_top(carpels: 5, radius: 0.62)
+
+    } else if kind == "many-petal" {
+      // 8 petals — represents 7+ petal flowers (Ranunculaceae, Nymphaeaceae etc.)
+      for a in range(8) {
+        _draw_radial_organ(_petal_outline(), radius: 1.42, angle: a * 45deg,
+          fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 0.85)
+      }
+      // Many stamens — two rings
+      for a in range(8) {
+        _draw_radial_stamen(radius: 0.95, angle: a * 45deg + 22.5deg, len: 0.75, anther-scale: 0.78)
+      }
+      for a in range(8) {
+        _draw_radial_stamen(radius: 0.65, angle: a * 45deg, len: 0.55, anther-scale: 0.68)
+      }
+      _draw_gynoecium_top(carpels: 5, radius: 0.58)
+
+    } else if kind == "monocot" {
       // outer tepals
       for a in (90deg, 210deg, 330deg) {
         _draw_radial_organ(
@@ -190,7 +262,6 @@
           scale: 1.02,
         )
       }
-
       // inner tepals
       for a in (30deg, 150deg, 270deg) {
         _draw_radial_organ(
@@ -202,13 +273,12 @@
           scale: 0.92,
         )
       }
-
       // six stamens
       for a in (0deg, 60deg, 120deg, 180deg, 240deg, 300deg) {
         _draw_radial_stamen(radius: 0.95, angle: a, len: 0.95, anther-scale: 0.9)
       }
-
       _draw_gynoecium_top(carpels: 3, radius: 0.72)
+
     } else if kind == "bilabiate" {
       // 5 sepals behind petals
       for a in (54deg, 126deg, 198deg, 270deg, 342deg) {
@@ -217,37 +287,32 @@
           fill: sepal-fill, stroke: (paint: sepal-stroke, thickness: 0.8pt), scale: 0.9,
         )
       }
-
-      // upper lip — 2 petals flanking the vertical axis
+      // upper lip — 2 petals
       for a in (105deg, 75deg) {
         _draw_radial_organ(
           _petal_outline(), radius: 1.40, angle: a,
-          fill: petal-fill, stroke: (paint: petal-stroke, thickness: 0.9pt), scale: 1.0,
+          fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 1.0,
         )
       }
-
       // lower lip — large central petal + 2 smaller lateral petals
       _draw_radial_organ(
         _petal_outline(), radius: 1.55, angle: 270deg,
-        fill: petal-fill, stroke: (paint: petal-stroke, thickness: 0.9pt), scale: 1.15,
+        fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 1.15,
       )
       for a in (212deg, 328deg) {
         _draw_radial_organ(
           _petal_outline(), radius: 1.38, angle: a,
-          fill: petal-fill, stroke: (paint: petal-stroke, thickness: 0.9pt), scale: 0.82,
+          fill: pf, stroke: (paint: ps, thickness: 0.9pt), scale: 0.82,
         )
       }
-
-      // 4 stamens (didynamous): 2 long toward upper lip, 2 short flanking
+      // 4 stamens (didynamous)
       _draw_radial_stamen(radius: 0.88, angle: 84deg, len: 1.05, anther-scale: 0.9)
       _draw_radial_stamen(radius: 0.88, angle: 96deg, len: 1.05, anther-scale: 0.9)
       _draw_radial_stamen(radius: 0.72, angle: 70deg, len: 0.70, anther-scale: 0.8)
       _draw_radial_stamen(radius: 0.72, angle: 110deg, len: 0.70, anther-scale: 0.8)
-
       // bicarpellate gynoecium
       _draw_gynoecium_top(carpels: 2, radius: 0.65)
-
-      // bilateral symmetry axis — drawn last so it sits on top of petals
+      // bilateral symmetry axis
       line(
         (0, -5.6), (0, 5.9),
         stroke: (paint: rgb("#555"), thickness: 0.9pt, dash: "dashed"),
@@ -265,28 +330,25 @@
           scale: 0.9,
         )
       }
-
       // five petals
       for a in (90deg, 162deg, 234deg, 306deg, 18deg) {
         _draw_radial_organ(
           _petal_outline(),
           radius: 1.45,
           angle: a,
-          fill: petal-fill,
-          stroke: (paint: petal-stroke, thickness: 0.9pt),
+          fill: pf,
+          stroke: (paint: ps, thickness: 0.9pt),
           scale: 1.0,
         )
       }
-
       // five stamens alternating with petals
       for a in (54deg, 126deg, 198deg, 270deg, 342deg) {
         _draw_radial_stamen(radius: 0.95, angle: a, len: 0.82, anther-scale: 0.9)
       }
-
       _draw_gynoecium_top(carpels: 5, radius: 0.7)
     }
 
-    // Optional symmetry axes — drawn on top of petals
+    // Optional symmetry axes
     if symmetry-lines > 0 {
       let sym-stroke = (paint: rgb("#555"), thickness: 0.9pt, dash: "dashed")
       let r = 5.7
@@ -300,7 +362,7 @@
       }
     }
 
-    // Draw any caller-supplied labels (leader line + text)
+    // Caller-supplied labels
     let ldr-stroke = (paint: rgb("#444"), thickness: 0.4pt)
     for lbl in labels {
       if "from" in lbl {

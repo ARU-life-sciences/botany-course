@@ -13,11 +13,12 @@ ok=0; fail=0
 
 compile_one() {
   local src="$1"
-  local name
-  name="$(basename "$src" .typ)"
-  local out="$LECTURES_DIR/${name}.pdf"
+  local out="$2"
+  local label="$3"
+  local outname
+  outname="$(basename "$out")"
 
-  printf "  %-30s → %s ... " "$name.typ" "${name}.pdf"
+  printf "  %-30s → %s ... " "$label" "$outname"
   if typst compile --root "$COURSE_ROOT" "$src" "$out" 2>&1; then
     echo "OK"
     ((ok++)) || true
@@ -29,17 +30,22 @@ compile_one() {
 
 if [[ "$WATCH" == "--watch" ]]; then
   # Watch mode: recompile whichever file changes (run one watcher per file)
-  echo "Watching lectures/ for changes (Ctrl-C to stop)…"
+  echo "Watching for changes (Ctrl-C to stop)…"
   for src in "$LECTURES_DIR"/main_*.typ; do
     name="$(basename "$src" .typ)"
-    typst watch "$src" "$LECTURES_DIR/${name}.pdf" &
+    typst watch --root "$COURSE_ROOT" "$src" "$LECTURES_DIR/${name}.pdf" &
   done
+  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/famfinder.typ" "$LECTURES_DIR/famfinder.pdf" &
   wait
 else
   echo "Building botany course lectures…"
   for src in "$LECTURES_DIR"/main_*.typ; do
-    compile_one "$src"
+    name="$(basename "$src" .typ)"
+    compile_one "$src" "$LECTURES_DIR/${name}.pdf" "${name}.typ"
   done
+  echo ""
+  echo "Building handouts…"
+  compile_one "$LECTURES_DIR/famfinder.typ" "$LECTURES_DIR/famfinder.pdf" "famfinder.typ"
   echo ""
   echo "Done — ${ok} succeeded, ${fail} failed."
 fi
