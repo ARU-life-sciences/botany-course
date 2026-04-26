@@ -155,6 +155,7 @@
     "Linaceae",
     "Cistaceae",
     "Portulacaceae",
+    "Limnanthaceae"
   ),
 
   // 7+
@@ -248,7 +249,8 @@
     "Balsaminaceae", 
     "Phrymaceae",
     "Scrophulariaceae",
-    "Orobanchaceae"
+    "Orobanchaceae",
+    [Tropaolaceae - _Tropaeolum_]
   ),
 
   // ── ROW 3 — SPIKE OR RACEME ─────────────────────────────────────────────────
@@ -522,6 +524,7 @@
   gutter: 0.6em,
   [
     #text(weight: "bold", fill: green)[Notes]
+    - Families arranged in order of occurrence (column-wise)
     - Family names follow Stace (2019).
     - Liliaceae s.l. split into Amaryllidaceae, Melanthiaceae., etc
     - Scrophulariaceae s.l. split into Plantaginaceae, Veronicaceae, etc.
@@ -626,7 +629,7 @@
         "Urticaceae",
         "Caryophyllaceae",
         "Callitrichaceae",
-        "Viscaceae",
+        "Santalaceae",
         "Rubiaceae"
       ),
       fams("Caryophyllaceae", "Amaranthaceae"),
@@ -693,7 +696,7 @@
         "Adoxaceae",
         "Cannabinaceae",
         "Asteraceae",
-        "Viscaceae"
+        "Santalaceae"
       ),
       fams("Juncaceae", "Poaceae", "Cyperaceae", "Typhaceae"),
     )
@@ -701,7 +704,7 @@
 
   // ── Table 2: Trees and Shrubs ───────────────────────────────────────────
   [
-    #text(weight: "bold", size: 10pt, fill: green)[Table 2 · Trees and Shrubs · Petal counts in brackets]
+    #text(weight: "bold", size: 10pt, fill: green)[Table 2 · Trees, Shrubs, Woody Climbers · Petal counts in brackets]
     #v(0.08em)
     #text(size: 10pt, style: "italic", fill: green)[a. Coloured (not green/brown) flowers — broken down by colour within radial symmetry]
     #v(0.07em)
@@ -747,7 +750,9 @@
         "Cornaceae (4)",
         "Aquifoliaceae (4)",
         "Hydrangaceae (4-5)",
-        "Tamaricaceae (5)"
+        "Tamaricaceae (5)",
+        "Passifloraceae (5; corona of many infertile stamens)",
+        [Rutaceae (5; _Choisya_)]
       ),
       // yellow
       fams(
@@ -755,7 +760,9 @@
         "Cornaceae (4)",
         "Berberidaceae (many)",
         [Grossulariaceae (5; _Ribes odoratum_)],
-        [Rosaceae (5; _Kerria_)]
+        [Rosaceae (5; _Kerria_)],
+        [Sapindaceae (4; _Koelreuteria_)],
+        [Rutaceae (4-5; _Ruta_)]
       ),
       // pink/purple
       fams(
@@ -764,7 +771,8 @@
         "Rosaceae (5; Spiraea)",
         "Ericaceae (3; Empetrum)",
         "Tamaricaceae (5)",
-        [Thymeleaceae (4; _Daphne_, actually sepals)]
+        [Thymeleaceae (4; _Daphne_, actually sepals)],
+        [Rutaceae (4 joined; _Correa_)]
       ),
       // bilateral
       fams(
@@ -780,7 +788,9 @@
         "Oleaceae (4-6)",
         "Viburnaceae (5)",
         "Sambucaceae (5)", 
-        "Ericaceae (4-5)"
+        "Ericaceae (4-5)",
+        "Myrtaceae (4-5)",
+        [Simaroubaceae (5; _Ailanthus_)]
       ),
       // yellow
       fams(
@@ -838,14 +848,19 @@
         "Rhamnaceae",
         "Thymeleaceae",
         "Grossulariaceae",
-        "Amaranthaceae"
+        "Amaranthaceae",
+        [Anacardiaceae (dense (_Rhus_) or diffuse (_Cotinus_))]
       ),
       fams(
         "Ulmaceae (small axillary clusters)",
+        "Vitaceae (woody climber, leaf opposed infls)",
         "Platanaceae (globose pendant heads)",
         "Oleaceae (axillary clusters)",
         "Eleagnaceae (axillary clusters)",
-        "Buxaceae (monoecious clusters)"
+        "Buxaceae (monoecious clusters)",
+        [Moraceae (very odd fls; _Ficus_ or _Morus_)],
+        "Nothofagaceae",
+        [Myrtaceae (_Eucalyptus_)]
       ),
     )
   ],
@@ -902,16 +917,15 @@
       fams(
         "Callitrichaceae",
         "Potamogetonaceae",
-        "Haloragaceae",
+        "Haloragaceae (whorled; finely pinnate)",
         "Hippuridaceae",
         "Hydrocharitaceae",
         "Typhaceae",
-        "Ceratophyllaceae",
+        "Ceratophyllaceae (whorled; bifid)",
         "Elatinaceae",
         "Cyperaceae",
         "Zannichellaceae",
         "Ruppiaceae",
-        
       ),
       fams(
         "Araceae (Lemnoideae)",
