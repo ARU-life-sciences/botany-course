@@ -237,9 +237,11 @@
   ),
 
   // 7+
-  fams("Aizoaceae",
-       "(Caryophyllaceae - check!)",
-       "(Onagraceae - check!)"),
+  fams(
+    text(fill: red)[Aizoaceae],
+    "(Caryophyllaceae - check!)",
+    "(Onagraceae - check!)"
+  ),
 
   // Bilateral
   fams(
