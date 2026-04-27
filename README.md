@@ -29,6 +29,12 @@ A 6-week introductory botany course combining classroom sessions, fieldwork, and
 | `main_flowers.typ` | Week 1 — flower morphology and symmetry |
 | `main_inflorescences.typ` | Week 1 — inflorescence types |
 
+### Handouts (`./lectures/`)
+
+| File | Description |
+|------|-------------|
+| `famfinder.typ` | Two-page A4 landscape family finder — keys British vascular plant families by flower colour, inflorescence type, and habit (herbs, trees & shrubs, aquatics, non-photosynthetic) |
+
 The PDF's are also in this same directory.
 
 ### Library (`lib/`)

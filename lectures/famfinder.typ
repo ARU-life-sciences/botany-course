@@ -1,6 +1,6 @@
 // Family Finder — British Vascular Plants
 // Landscape A4 handout. Compile with: typst compile famfinder.typ
-// Based on the original Famfinder by M. Wilkins; rebuilt in Typst with APG IV family names.
+// Based on the original Famfinder by R. Milne; rebuilt in Typst with Stace (2019) family names.
 
 #import "../lib/inflorescences.typ": inf_solitary, inf_pair, inf_axillary, inf_spike, inf_raceme, inf_umbel, inf_cyme, inf_tight_umbel, inf_catkin
 #import "../lib/flowers.typ": flower_top
@@ -44,7 +44,7 @@
 ]
 
 #align(center)[
-  #text(size: 11pt, weight: "bold", fill: green)[Family Finder — British Vascular Plants]
+  #text(size: 10pt, weight: "bold", fill: green)[Table 1: Family Finder — British Vascular Plants]
   #h(0.8em)
   #text(size: 7.5pt, style: "italic")[
     Flowers not green or brown · radially or bilaterally symmetric · herbaceous plants
@@ -133,7 +133,7 @@
     "Ericaceae",
     "Convolvulaceae",
     "Campanulaceae",
-    "Apocynaceae",
+    text(fill: red)[Apocynaceae],
     "Gentianaceae",
     "Solanaceae",
     "Caprifoliaceae",
@@ -155,7 +155,9 @@
     "Linaceae",
     "Cistaceae",
     "Portulacaceae",
-    "Limnanthaceae"
+    "Montiaceae",
+    text(fill: red)[Limnanthaceae],
+    text(fill: red)[Sarraceniaceae]
   ),
 
   // 7+
@@ -165,7 +167,7 @@
     "Primulaceae",
     "Rosaceae",
     "Gentianaceae",
-    "Paeoniaceae",
+    text(fill: red)[Paeoniaceae],
     "Aizoaceae",
     "(Asteraceae - check!)",
     "(Caryophyllaceae - check!)"
@@ -210,7 +212,8 @@
     "Convolvulaceae",
     "Apocynaceae",
     "Solanaceae",
-    "Curcubitaceae"
+    "Curcubitaceae",
+    text(fill: red)[Hydrophyllaceae]
   ),
 
   // 5 free
@@ -247,10 +250,10 @@
     "Onagraceae",
     "Violaceae",
     "Balsaminaceae", 
-    "Phrymaceae",
+    text(fill: red)[Phrymaceae],
     "Scrophulariaceae",
     "Orobanchaceae",
-    [Tropaolaceae - _Tropaeolum_]
+    text(fill: red)[Tropaolaceae - _Tropaeolum_]
   ),
 
   // ── ROW 3 — SPIKE OR RACEME ─────────────────────────────────────────────────
@@ -268,11 +271,14 @@
     "Alismataceae",
     "Asparagaceae",
     "Amaryllidaceae",
+    "Nartheciaceae",
     "Resedaceae",
     "Polygonaceae",
     "Iridaceae",
     "Scheuchzeriaceae",
-    "Asphodelaceae"
+    "Asphodelaceae",
+    "Tofieldiaceae",
+    text(fill: red)[Pontederiaceae (semi-aquatic)]
   ),
 
   // 4 petals
@@ -307,7 +313,8 @@
     "Cistaceae",
     "Portulacaceae",
     "Ranunculaceae",
-    "Santalaceae"
+    "Santalaceae",
+    text(fill: red)[Phytolaccaceae]
   ),
 
   // 7+
@@ -363,6 +370,7 @@
   // 5 free
   fams(
     "Apiaceae",
+    "Hydrocotylaceae",
     "Geraniaceae",
     "Oxalidaceae",
     "Rosaceae"
@@ -375,7 +383,8 @@
   fams(
     "Apiaceae",
     [#text(style: "italic", size: 6pt)[(outer florets only)]],
-    "Fabaceae"
+    "Fabaceae",
+    text(fill: red)[Alstromeriaceae]
   ),
 
   // ── ROW 5 — COMPLEX GROUP ───────────────────────────────────────────────────
@@ -388,7 +397,8 @@
     "Asparagaceae",
     "Polygonaceae",
     "Rosaceae",
-    "Rubiaceae"
+    "Rubiaceae",
+    text(fill:red)[Commelinaceae]
   ),
 
   // 4 petals
@@ -414,7 +424,9 @@
     "Polemoniaceae",
     "Plumbaginaceae",
     "Caprifoliaceae",
-    "Ericaceae"
+    "Ericaceae",
+    text(fill: red)[Nyctaginaceae],
+    text(fill: red)[Hydrophyllaceae]
   ),
 
   // 5 free
@@ -429,7 +441,7 @@
     "Ranunculaceae",
     "Geraniaceae",
     "Linaceae",
-    "Portulacaceae",
+    "Montiaceae",
     "(Solanaceae)"
   ),
 
@@ -449,7 +461,8 @@
     "Balsaminaceae",
     "Lamiaceae",
     "Polemoniaceae",
-    "Boraginaceae"
+    "Boraginaceae",
+    text(fill: red)[Alstromeriaceae]
   ),
 
   // ── ROW 6 — TIGHT HEAD ──────────────────────────────────────────────────────
@@ -459,7 +472,8 @@
   fams(
     "Asparagaceae",
     "Amaryllidaceae",
-    "Asphodelaceae"
+    "Asphodelaceae",
+    text(fill: red)[Bromeliaceae]
   ),
 
   // 4 petals
@@ -489,7 +503,7 @@
     "Rosaceae",
     "Apiaceae",
     "Plumbaginaceae",
-    "Cannabinaceae",
+    "Cannabaceae",
     "(Asteraceae)",
     "Polygonaceae"
   ),
@@ -511,40 +525,6 @@
     "Caprifoliaceae"
   ),
 )
-
-#v(0.15em)
-#line(length: 100%, stroke: (paint: rgb("#aaa"), thickness: 0.4pt))
-#v(0.1em)
-
-#[
-#set text(size: 7pt)
-#set par(leading: 0.3em)
-#grid(
-  columns: (1fr, 1fr, 1fr),
-  gutter: 0.6em,
-  [
-    #text(weight: "bold", fill: green)[Notes]
-    - Families arranged in order of occurrence (column-wise)
-    - Family names follow Stace (2019).
-    - Liliaceae s.l. split into Amaryllidaceae, Melanthiaceae., etc
-    - Scrophulariaceae s.l. split into Plantaginaceae, Veronicaceae, etc.
-  ],
-  [
-    #text(weight: "bold", fill: green)[Green / brown flowers]
-    For plants with inconspicuous green or brown flowers consider:
-    Poaceae (grasses), Cyperaceae (sedges), Juncaceae (rushes),
-    Polygonaceae, Urticaceae, Amaranthaceae (incl. Chenopodiaceae),
-    Euphorbiaceae, Plantaginaceae (_Plantago_), _Rumex_, _Arum_ (Araceae).
-    Flowers lack obvious petals; see Table 1, page 2 for a key.
-  ],
-  [
-    #text(weight: "bold", fill: green)[This table does not cover]
-    - Trees/shrubs → Table 2 (p. 2)
-    - Aquatic plants → Table 3 (p. 2)
-    - No chlorophyll → Table 4 (p. 2)
-  ],
-)
-]
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PAGE 2 — Supplementary tables
@@ -575,21 +555,14 @@
 #let cs = (paint: rgb("#999"), thickness: 0.4pt)  // cell stroke
 #let ci = (x: 3pt, y: 2.2pt)                      // cell inset
 
-#align(center)[
-  #text(size: 9pt, weight: "bold", fill: green)[Family Finder — Supplementary Tables]
-  #h(0.6em)
-  #text(size: 7pt, style: "italic")[Green/brown flowers · Trees & shrubs · Aquatic plants · Without chlorophyll]
-]
-#v(0.18em)
-
-// ── TOP ROW: Tables 1 and 2 ────────────────────────────────────────────────
+// ── TOP ROW: Tables 2 and 3 ────────────────────────────────────────────────
 #grid(
   columns: (10.5cm, 1fr),
   column-gutter: 0.5em,
 
-  // ── Table 1: Green/Brown Flowers (herbaceous) ──────────────────────────
+  // ── Table 2: Green/Brown Flowers (herbaceous) ──────────────────────────
   [
-    #text(weight: "bold", size: 10pt, fill: green)[Table 1 · Green/Brown Flowers — herbs]
+    #text(weight: "bold", size: 10pt, fill: green)[Table 2 · Green/Brown Flowers — herbs]
     #v(0.12em)
     #table(
       columns: (1.62cm, 1fr, 1fr),
@@ -611,7 +584,7 @@
         "Caryophyllaceae",
         "Asparagaceae",
         "Amaryllidaceae",
-        [Melianthaceae (_Paris_)],
+        [Melanthiaceae (_Paris_)],
         "Euphorbiaceae"
       ),
 
@@ -644,7 +617,7 @@
         "Resedaceae",
         "Euphorbiaceae",
         "Urticaceae",
-        "Cannabianaceae",
+        "Cannabaceae",
         "Curcubitaceae",
         "Potamogetonaceae",
         "Araceae",
@@ -678,7 +651,7 @@
         "Euphorbiaceae",
         "Rosaceae",
         "Urticaceae",
-        "Cannabinaceae",
+        "Cannabaceae",
         "Saxifragaceae",
         "Gunneraceae",
         "Curcubitaceae",
@@ -694,7 +667,7 @@
         "Rosaceae",
         "Typhaceae",
         "Adoxaceae",
-        "Cannabinaceae",
+        "Cannabaceae",
         "Asteraceae",
         "Santalaceae"
       ),
@@ -702,11 +675,11 @@
     )
   ],
 
-  // ── Table 2: Trees and Shrubs ───────────────────────────────────────────
+  // ── Table 3: Trees and Shrubs ───────────────────────────────────────────
   [
-    #text(weight: "bold", size: 10pt, fill: green)[Table 2 · Trees, Shrubs, Woody Climbers · Petal counts in brackets]
+    #text(weight: "bold", size: 10pt, fill: green)[Table 3 · Trees, Shrubs, Woody Climbers · Petal counts in brackets]
     #v(0.08em)
-    #text(size: 10pt, style: "italic", fill: green)[a. Coloured (not green/brown) flowers — broken down by colour within radial symmetry]
+    #text(size: 8pt, style: "italic", fill: green)[a. Coloured (not green/brown) flowers — broken down by colour within radial symmetry]
     #v(0.07em)
     #table(
       columns: (1.58cm, 1fr, 1fr, 1fr, 1fr),
@@ -749,10 +722,10 @@
         "Rosaceae (5)",
         "Cornaceae (4)",
         "Aquifoliaceae (4)",
-        "Hydrangaceae (4-5)",
-        "Tamaricaceae (5)",
-        "Passifloraceae (5; corona of many infertile stamens)",
-        [Rutaceae (5; _Choisya_)]
+        text(fill: red)[Hydrangaceae (4-5)],
+        text(fill: red)[Tamaricaceae (5)],
+        text(fill: red)[Passifloraceae (5; corona of many infertile stamens)],
+        text(fill: red)[Rutaceae (5; _Choisya_)]
       ),
       // yellow
       fams(
@@ -762,7 +735,7 @@
         [Grossulariaceae (5; _Ribes odoratum_)],
         [Rosaceae (5; _Kerria_)],
         [Sapindaceae (4; _Koelreuteria_)],
-        [Rutaceae (4-5; _Ruta_)]
+        text(fill: red)[Rutaceae (4-5; _Ruta_)]
       ),
       // pink/purple
       fams(
@@ -770,14 +743,14 @@
         [Grossulariaceae (5; _Ribes sanguineum_)],
         "Rosaceae (5; Spiraea)",
         "Ericaceae (3; Empetrum)",
-        "Tamaricaceae (5)",
+        text(fill: red)[Tamaricaceae (5)],
         [Thymeleaceae (4; _Daphne_, actually sepals)],
-        [Rutaceae (4 joined; _Correa_)]
+        text(fill: red)[Pittosporaceae (5)]
       ),
       // bilateral
       fams(
         "Fabaceae (5)",
-        "Hippocastanaceae (4-5)",
+        [Sapindaceae (4-5; _Aesculus_)],
       ),
 
       rl-d(flower_top(kind: "joined", size: 0.8cm), [Petals joined]),
@@ -789,8 +762,9 @@
         "Viburnaceae (5)",
         "Sambucaceae (5)", 
         "Ericaceae (4-5)",
-        "Myrtaceae (4-5)",
-        [Simaroubaceae (5; _Ailanthus_)]
+        "Diapensiaceae (5)",
+        text(fill: red)[Myrtaceae (4-5)],
+        text(fill: red)[Simaroubaceae (5; _Ailanthus_)]
       ),
       // yellow
       fams(
@@ -801,18 +775,21 @@
         "Scrophulariaceae (4)",
         "Ericaceae (4-5)",
         "Solanaceae (5)",
-        "Oleaceae (4-6)"
+        "Oleaceae (4-6)",
+        text(fill: red)[Garryaceae (4)],
+        text(fill: red)[Escalloniaceae (5)],
+        text(fill: red)[Rutaceae (4; _Correa_)]
       ),
       // bilateral
       fams(
         "Caprifoliaceae (5)",
         "Ericaceae (5)",
-        "Paulowniaceae (5)",
+        text(fill: red)[Paulowniaceae (5)],
       ),
     )
 
     #v(0.22em)
-    #text(size: 10pt, style: "italic", fill: green)[b. Green/brown flowers]
+    #text(size: 8pt, style: "italic", fill: green)[b. Green/brown flowers]
     #v(0.07em)
     #table(
       columns: (1fr, 1fr, 1fr),
@@ -849,18 +826,19 @@
         "Thymeleaceae",
         "Grossulariaceae",
         "Amaranthaceae",
-        [Anacardiaceae (dense (_Rhus_) or diffuse (_Cotinus_))]
+        text(fill: red)[Anacardiaceae (dense (_Rhus_) or diffuse (_Cotinus_))],
+        text(fill: red)[Griseliniaceae]
       ),
       fams(
         "Ulmaceae (small axillary clusters)",
-        "Vitaceae (woody climber, leaf opposed infls)",
-        "Platanaceae (globose pendant heads)",
+        text(fill: red)[Vitaceae (woody climber, leaf opposed infls)],
+        text(fill: red)[Platanaceae (globose pendant heads)],
         "Oleaceae (axillary clusters)",
         "Eleagnaceae (axillary clusters)",
         "Buxaceae (monoecious clusters)",
-        [Moraceae (very odd fls; _Ficus_ or _Morus_)],
-        "Nothofagaceae",
-        [Myrtaceae (_Eucalyptus_)]
+        text(fill: red)[Moraceae (very odd fls; _Ficus_ or _Morus_)],
+        text(fill: red)[Nothofagaceae],
+        text(fill: red)[Myrtaceae (_Eucalyptus_)]
       ),
     )
   ],
@@ -868,14 +846,14 @@
 
 #v(0.35em)
 
-// ── BOTTOM ROW: Tables 3 and 4 ────────────────────────────────────────────
+// ── BOTTOM ROW: Tables 4 and 5 ────────────────────────────────────────────
 #grid(
   columns: (1fr, 8.5cm),
   column-gutter: 0.5em,
 
-  // ── Table 3: Fully Aquatic Plants ──────────────────────────────────────
+  // ── Table 4: Fully Aquatic Plants ──────────────────────────────────────
   [
-    #text(weight: "bold", size: 10pt, fill: green)[Table 3 · Fully Aquatic Plants]
+    #text(weight: "bold", size: 10pt, fill: green)[Table 4 · Fully Aquatic Plants]
     #v(0.1em)
     #table(
       columns: (1fr, 1fr, 1fr, 1.2fr),
@@ -903,7 +881,8 @@
           "Lentibulariaceae",
           "Ranunculaceae",
           [Primulaceae (_Samolus_)],
-          "Butomaceae"
+          "Butomaceae",
+          "Aponogetonaceae"
         )
       ],
 
@@ -933,9 +912,9 @@
     )
   ],
 
-  // ── Table 4: Without Chlorophyll ───────────────────────────────────────
+  // ── Table 5: Without Chlorophyll ───────────────────────────────────────
   [
-    #text(weight: "bold", size: 10pt, fill: green)[Table 4 · Without Chlorophyll]
+    #text(weight: "bold", size: 10pt, fill: green)[Table 5 · Without Chlorophyll]
     #v(0.1em)
     #table(
       columns: (2cm, 1fr),
@@ -958,7 +937,7 @@
 
       rl([Mycoheterotrophic]),
       fams(
-        [Ericaceae (_Monotropa_)],
+        [Ericaceae (_Hypopitys_)],
         [Orchidaceae (_Neottia nidus-avis_)]
       ),
     )
@@ -970,6 +949,28 @@
 #v(0.15em)
 #[
 #set text(size: 7pt)
+#set par(leading: 0.3em)
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 0.6em,
+  [
+    #text(weight: "bold", fill: green)[Notes]
+    - Families arranged in order of occurrence (column-wise)
+    - Family names follow Stace (2019).
+    - There may be taxonomic changes from the texts you use.
+      - e.g. Liliaceae s.l. split & Scrophulariaceae s.l. split.
+  ],
+  [
+    #text(weight: "bold", fill: red)[Aliens]
+    - Wholly alien families are marked in red.
+      - Either archaeophyte/neophyte.
+  ],
+  [
+    #text(weight: "bold", fill: green)[Work In Progress!]
+      - If you find mistakes, email me at max.carter-brown\@aru.ac.uk
+  ],
+)
+#v(0.4em)
 #text(weight: "bold", fill: green)[Key references] #h(1em)
 Stace (2019) _New Flora of the British Isles_, 4th ed. · Poland & Clement (2020) _Vegetative Key to the British Flora_ · Rose & O'Reilly (2006) _The Wildflower Key_
 ]
