@@ -47,7 +47,7 @@
   #text(size: 10pt, weight: "bold", fill: green)[Table 1: Family Finder — British Vascular Plants]
   #h(0.8em)
   #text(size: 7.5pt, style: "italic")[
-    Flowers not green or brown · radially or bilaterally symmetric · herbaceous plants
+    Flowers not green or brown · radially or bilaterally symmetric · herbaceous terrestrial plants
   ]
 ]
 #v(0.25em)
