@@ -34,6 +34,8 @@ A 6-week introductory botany course combining classroom sessions, fieldwork, and
 | File | Description |
 |------|-------------|
 | `famfinder.typ` | Two-page A4 landscape family finder — keys British vascular plant families by flower colour, inflorescence type, and habit (herbs, trees & shrubs, aquatics, non-photosynthetic) |
+| `worksheet_leaves.typ` | A4 printable leaf observation worksheet — structured table for recording simple/compound, shape, margin, venation, surface, and notes per specimen |
+| `worksheet_flowers.typ` | A4 printable flower observation worksheet — structured table for recording sepal/petal/stamen/carpel counts, fusion, symmetry, inflorescence type, and notes per specimen |
 
 The PDF's are also in this same directory.
 

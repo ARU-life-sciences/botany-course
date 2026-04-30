@@ -124,8 +124,35 @@
   ),
 )
 
-== Exercise
+== Activity — Flower observation
 
-- I have some flowers here
-- Organise into group based on morphology
-- Count the floral parts if you can!
+#let green = rgb("#4f6b3c")
+
+*You have a selection of flowers.*
+
++ Is the flower solitary, or part of an inflorescence?
++ Count the parts of each whorl
++ Are petals free or fused?
++ Is the flower radially or bilaterally symmetric?
++ Dissect carefully if needed — lay parts on card
+
+#v(0.4em)
+_Worksheet provided separately_
+
+== What to record
+
+#set text(size: 16pt)
+#table(
+  columns: (4cm, 1fr),
+  fill: (col, _row) => if col == 0 { rgb("#f8f0f0") } else { white },
+  stroke: (paint: rgb("#999"), thickness: 0.4pt),
+  inset: (x: 5pt, y: 8pt),
+  table.cell(colspan: 2, fill: rgb("#e8c8c8"),
+    align(center)[#text(weight: "bold", fill: green)[Flower characters]]),
+  [*Sepals*],    [Count — note if joined or free],
+  [*Petals*],   [Count — note if free or fused into a tube],
+  [*Stamens*],  [Count — note if same number as petals or different],
+  [*Carpels*],  [Count if visible — superior or inferior ovary?],
+  [*Symmetry*], [Radial (actinomorphic) or bilateral (zygomorphic)],
+  [*Notes*],    [Colour · scent · spur · nectary · hairy?],
+)

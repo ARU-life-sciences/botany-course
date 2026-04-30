@@ -67,8 +67,34 @@
 == Leaf glands
 #leaf_gland_gallery()
 
-== Exercise
-- There are leaves from different species
-- Take one example from each species
-- Group similar leaves together
-- Describe each group of leaves as best you can
+== Activity — Leaf observation
+
+#let green = rgb("#4f6b3c")
+
+*You have a selection of leaves from different species.*
+
++ Pick up one leaf at a time — work through the characters on the next slide
++ Record each on your worksheet
++ Once all leaves described — can you group any together?
+
+#v(0.4em)
+_Worksheet provided separately_
+
+== What to record
+
+#set text(size: 16pt)
+#table(
+  columns: (4cm, 1fr),
+  fill: (col, _row) => if col == 0 { rgb("#d8e8cc") } else { white },
+  stroke: (paint: rgb("#999"), thickness: 0.4pt),
+  inset: (x: 5pt, y: 8pt),
+  table.cell(colspan: 2, fill: rgb("#b0cc94"),
+    align(center)[#text(weight: "bold", fill: green)[Leaf characters]]),
+  [*Arrangement*],         [Alternate · opposite · whorled · basal rosette],
+  [*Simple or compound?*], [Simple / pinnately compound / palmately compound],
+  [*Shape*],               [Ovate · lanceolate · linear · oblong · round · lobed],
+  [*Margin*],              [Entire · toothed (serrate/dentate) · lobed · wavy],
+  [*Venation*],            [Pinnate · palmate · parallel],
+  [*Surface*],             [Smooth · hairy · waxy · rough],
+  [*Notes*],               [Smell? Colour? Petiole? Stipules?],
+)

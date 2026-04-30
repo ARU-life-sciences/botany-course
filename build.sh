@@ -35,7 +35,10 @@ if [[ "$WATCH" == "--watch" ]]; then
     name="$(basename "$src" .typ)"
     typst watch --root "$COURSE_ROOT" "$src" "$LECTURES_DIR/${name}.pdf" &
   done
-  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/famfinder.typ" "$LECTURES_DIR/famfinder.pdf" &
+  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/famfinder.typ"       "$LECTURES_DIR/famfinder.pdf" &
+  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/family_rosaceae.typ" "$LECTURES_DIR/family_rosaceae.pdf" &
+  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/worksheet_leaves.typ" "$LECTURES_DIR/worksheet_leaves.pdf" &
+  typst watch --root "$COURSE_ROOT" "$LECTURES_DIR/worksheet_flowers.typ" "$LECTURES_DIR/worksheet_flowers.pdf" &
   wait
 else
   echo "Building botany course lectures…"
@@ -45,7 +48,10 @@ else
   done
   echo ""
   echo "Building handouts…"
-  compile_one "$LECTURES_DIR/famfinder.typ" "$LECTURES_DIR/famfinder.pdf" "famfinder.typ"
+  compile_one "$LECTURES_DIR/famfinder.typ"         "$LECTURES_DIR/famfinder.pdf"         "famfinder.typ"
+  compile_one "$LECTURES_DIR/family_rosaceae.typ"   "$LECTURES_DIR/family_rosaceae.pdf"   "family_rosaceae.typ"
+  compile_one "$LECTURES_DIR/worksheet_leaves.typ"  "$LECTURES_DIR/worksheet_leaves.pdf"  "worksheet_leaves.typ"
+  compile_one "$LECTURES_DIR/worksheet_flowers.typ" "$LECTURES_DIR/worksheet_flowers.pdf" "worksheet_flowers.typ"
   echo ""
   echo "Done — ${ok} succeeded, ${fail} failed."
 fi
